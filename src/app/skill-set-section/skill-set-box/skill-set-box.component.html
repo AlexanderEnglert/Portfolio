@@ -1,0 +1,25 @@
+<main>
+    <section>
+        <div id="skillSetSection" class="skillSetBoxHeadline">
+            <span  class="sectionHeadlineSmall karlaFont">{{translations.skillSet.skillSetSmallHeadline}}</span>
+            <div class="skillSetBox" appScrollAnimation>
+                <h1 class="sectionHeadline headlineChange firaCodeFont">{{translations.skillSet.skillSetHeadline}}</h1>
+                <div class="skillSetDescription">
+                    <span class="karlaFont">{{translations.skillSet.skillSetMainText}}</span>
+                    <div class="skillSetText karlaFont">
+                        <div [ngClass]="{'german-gap': currentLanguage === 'de', 'english-gap': currentLanguage === 'en'}" class="skillSetTextHeadline firaCodeFont">
+                            <span>{{translations.skillSet.skillSetSecondHeadlineFirst}}</span>
+                            <span class="skillSetHeadlineColor">{{translations.skillSet.skillSetSecondHeadlineSecond}}</span>
+                        </div>
+                        <span>{{translations.skillSet.skillSetAnotherSkillText}}</span>
+                    </div>
+                    <a (click)="scrollJump('contactSection')" class="skillSetA karlaFont">
+                        <span>{{translations.skillSet.skillSetButton}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <app-skill-set-technologies></app-skill-set-technologies>
+    </section>
+</main>
+

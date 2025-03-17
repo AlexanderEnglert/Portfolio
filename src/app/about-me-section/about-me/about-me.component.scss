@@ -1,0 +1,184 @@
+@import '../../../styles.scss';
+section{
+    height:910px;
+    margin: 0 96px;
+    position: relative;
+}
+.aboutMePicture{
+    position: absolute;
+    top: 120px;
+    left: 0;
+    >img{
+        @include buttonStyle(30px, 570px, 570px, #FFFFFF);
+    }
+}
+.aboutMeBox{
+    @include buttonStyle(30px, 100%, 640px, '');
+    @include centerFlex(flex, '', space-between);
+    padding:32px;
+    gap: 32px;
+    border: 1px solid #3DCFB6;
+    flex-direction: column;
+    background-color: rgb(31 46 43);
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+.aboutMeDescription{
+    @include fontStyle(18px, #ffffff, 400);
+    height: 100%;
+    width: 620px;
+    img{
+        width: 40px;
+        height: 40px;
+    }
+    >span{
+        margin-bottom: 24px;
+        display: block;
+    }
+}
+.aboutMeIconText{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+.aboutMeBoxHeadline{
+    @include centerFlex(flex, '', space-between);
+    height: 620px;
+    flex-direction: column; 
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+@media (min-width: 2050px) {
+    section{
+        margin: 0;
+    }
+}
+@media (min-width: 1921px) {
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 1920px;
+    }
+}
+@media (max-width: 1530px) {
+    .aboutMePicture{
+        top: 310px;
+        >img{
+            @include buttonStyle(30px, 420px, 400px, #FFFFFF);
+        }
+    }
+    .aboutMeBox{
+        @include buttonStyle(30px, 700px, 460px, '');
+        margin-top: 24px;
+        transition: height 0.5s ease-in-out;
+    }
+    .germanHeight {
+        height: 820px;
+    }
+    .germanHeightBox{
+        height: 720px;
+    }
+    .englishHeightBox{
+        height: 620px;
+    }
+    .englishHeight {
+        height: 710px;
+    }
+    .aboutMeBoxHeadline{
+        top: 120px;
+        margin-bottom: 16px;
+    }
+    .aboutMeDescription{
+        height: 620px;
+        width: 460px;
+    }
+}
+@media (max-width: 1200px) {
+    section{
+        margin: 0 48px;
+    }
+}
+@media (max-width: 1100px) {
+    section{
+        height: auto;
+        @include centerFlex(flex,center, '');
+        flex-direction: column;
+    }
+    .aboutMePicture{
+        padding-top: 80px;
+        position: static;
+    }
+    .aboutMeBoxHeadline{
+        margin-top: 40px;
+        position: static;
+        height: auto;
+    }.aboutMeBox{
+        @include buttonStyle(30px, fit-content, 750px, '');
+    }
+    .aboutMeDescription{
+        height: fit-content;
+        width: 750px;
+    }
+}
+@media (max-width: 950px) {
+    .aboutMeDescription{
+        width: 480px;
+    }
+    .aboutMeBox{
+        @include buttonStyle(30px, fit-content, 480px, '');
+        gap: 24px;
+    }
+}
+@media (max-width: 600px) {
+    .aboutMeDescription{
+        @include fontStyle(16px, #ffffff, 400);
+        width: 380px;
+    }
+    .aboutMeBox{
+        @include buttonStyle(30px, fit-content, 380px, '');
+        gap: 16px;
+    }
+}
+@media (max-width: 500px) {
+    .aboutMeDescription{
+        @include fontStyle(16px, #ffffff, 400);
+        width: 320px;
+        margin-top: 0
+    }
+    .aboutMeBox{
+        @include buttonStyle(30px, fit-content, 320px, '');
+        padding: 24px;
+        gap: 8px;
+    }
+    .aboutMeIconText{
+        gap: 16px;
+        img{
+            height: 32px;
+            width: 32px;
+        }
+    }
+    .aboutMePicture{
+        >img{
+            @include buttonStyle(30px, 340px, 340px, #FFFFFF);
+        }
+    }
+}
+@media (max-width: 400px) {
+    .aboutMeDescription{
+        width: 260px;
+        height: fit-content;
+    }
+    .aboutMeBox{
+        @include buttonStyle(30px, fit-content, 260px, '');
+        padding: 16px;
+    }
+    .aboutMePicture{
+        >img{
+            @include buttonStyle(30px, 300px, 300px, #FFFFFF);
+        }
+    }
+}

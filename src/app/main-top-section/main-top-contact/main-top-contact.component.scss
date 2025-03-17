@@ -1,0 +1,135 @@
+@import '../../../styles.scss';
+section{
+    @include centerFlex(flex, end, space-between);
+    margin: 0 96px;
+    height: 100%;
+}
+.scrollViewVector{
+    width: 1px;
+    height: 240px;
+    background-color: #3DCFB6;
+}
+.scrollViewAnimation {
+    @include centerFlex(flex, center, space-between);
+    height: 310px;
+    width: 30px;
+    flex-direction: column;
+}
+.scrollViewAnimateArrow{
+    @include buttonStyle(32px, 48px, 30px, '');
+    border: 1px solid #3DCFB6;
+    display: flex;
+    justify-content: center;
+}
+.scrollArrow{
+    height: 12px;
+    margin-top: 18px;
+    animation: moveArrow 1s infinite ease-in-out;
+}
+@keyframes moveArrow {
+    0% {
+        margin-top: 18px;
+    }
+    50% {
+        margin-top: 26px;
+    }
+    100% {
+        margin-top: 18px;
+    }
+}
+.contactView{
+    @include centerFlex(flex, center, space-between);
+    flex-direction: column;
+    height: 440px;
+    width: 32px;
+}
+.mailTextButton{
+    @include centerFlex(flex, center, '');
+    @include fontStyle(18px, #FFFFFF, 400);
+    transform: rotate(270deg);
+    width: auto;
+    height: 140px;
+    &:hover{
+        color: #3DCFB6;
+        cursor: pointer;
+    }
+}
+.vector{
+    width: 1px;
+    height: 190px;
+    background-color: #FFFFFF;
+}
+.contactButtonImg {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    > a > img {
+        height: 32px;
+        width: auto;
+        cursor: pointer;
+    }
+    > a:nth-child(2):hover > img {
+        content: url('../../../assets/img/githubButtonHover.png');
+    }
+    > a:nth-child(3):hover > img {
+        content: url('../../../assets/img/linkedinButtonHover.png');
+    }
+}
+.mailButtonStyle{
+    display: none;
+}
+@media (min-width: 1921px) {
+    section{
+        margin: 0;
+    }
+}
+@media (max-width: 1200px) {
+    section {
+        margin: 0 48px;
+    }
+}
+@media (max-width: 800px) {
+    section {
+        margin: 0 24px;
+    }
+    .mailButtonStyle{
+        display: block;
+        height: 32px;
+        cursor: pointer;
+        width: 32px;
+        &:hover >img{
+            content: url('../../../assets/img/mailButtonHover.png');
+        }
+    }
+    .contactButtonImg{
+        height: 120px;
+        gap: 8px;
+    }
+    .contactView{
+        height: 250px;
+        gap: 8px;
+    }
+    .mailTextButton{
+        display: none;
+    }
+    .scrollViewAnimation{
+        height: 290px;
+    }
+    .scrollViewVector{
+        height: 210px;
+    }
+}
+@media (max-width: 600px){
+    .scrollViewAnimation{
+        height: 250px;
+    }
+    .scrollViewVector{
+        height: 170px;
+    }
+    .contactView{
+        height: 230px;
+        gap: 8px;
+    }
+}

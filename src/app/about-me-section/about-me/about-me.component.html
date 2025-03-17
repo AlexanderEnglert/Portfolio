@@ -1,0 +1,29 @@
+<main>
+    <section>
+        <div id="aboutMeSection" class="aboutMePicture">
+            <img src="../../../assets/img/profilPicture.png" >
+        </div>
+        <div [ngClass]="{'germanHeight': currentLanguage === 'de', 'englishHeight': currentLanguage === 'en'}" class="aboutMeBoxHeadline">
+            <span class="karlaFont sectionHeadlineSmall">{{translations.aboutMe.aboutMeSmallHeadline}}</span>
+            <div class="aboutMeBox" [ngClass]="{'germanHeightBox': currentLanguage === 'de', 'englishHeightBox': currentLanguage === 'en'}"  appScrollAnimation>
+                <h1 class="firaCodeFont sectionHeadline">{{translations.aboutMe.aboutMeHeadline}}</h1>
+                <div class="aboutMeDescription">
+                    <span class="karlaFont">{{translations.aboutMe.aboutMeMainText}}</span>
+                    <div class="aboutMeIconText karlaFont">
+                        <img src="../../../assets/img/aboutMeLocation.png">
+                        <span>{{translations.aboutMe.aboutMeLocationPart}}</span>
+                    </div>
+                    <div class="aboutMeIconText karlaFont">
+                        <img src="../../../assets/img/aboutMeMinded.png">
+                        <span>{{translations.aboutMe.aboutMeMindPart}}</span>
+                    </div>
+                    <div class="aboutMeIconText karlaFont">
+                        <img src="../../../assets/img/aboutMeCheck.png">
+                        <span>{{translations.aboutMe.aboutMeCheckPart}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

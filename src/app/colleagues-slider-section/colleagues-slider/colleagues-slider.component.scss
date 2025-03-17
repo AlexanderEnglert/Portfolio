@@ -1,0 +1,177 @@
+@import "../../../styles.scss";
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 120px;
+  position: relative;
+}
+h2 {
+  @include fontStyle(32px, #3dcfb6, 700);
+  text-align: center;
+}
+.sliderVectorText {
+  @include centerFlex(flex, center, space-between);
+  position: absolute;
+  bottom: 40px;
+  width: 600px;
+  gap: 16px;
+  > div {
+    height: 0px;
+    width: 100%;
+    border-top: 1px solid #ffffff;
+    margin-left: 32px;
+  }
+  > span {
+    @include fontStyle(18px, "", 400);
+    width: fit-content;
+    white-space: nowrap;
+    margin-right: 72px;
+  }
+}
+.sliderContainer {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  margin-top: 38px;
+}
+.sliderAllElements {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+  margin-top: 10px;
+  max-width: 1920px;
+}
+.sliderAllElements[style*="none"] {
+  transition: none !important;
+}
+.sliderElementBox {
+  @include buttonStyle(32px, 270px, '', #3dcfb64d);
+  @include centerFlex(flex, center, space-between);
+  flex: 0 0 550px;
+  border: 1px solid #3dcfb6;
+  padding: 0px 40px;
+  color: #ffffff;
+  flex-direction: column;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.5;
+  transform: scale(0.9);
+  > span {
+    margin-top: 32px;
+  }
+}
+.sliderElementBox.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.sliderRadioButtons input[type="radio"] {
+  @include buttonStyle(50%, 8px, 8px, white);
+  appearance: none;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  margin: 0 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.sliderRadioButtons input[type="radio"]:checked {
+  border-color: #3dcfb6;
+  background-color: #3dcfb6;
+}
+.sliderControls {
+  @include centerFlex(flex, center, center);
+  height: 40px;
+  margin-top: 24px;
+  width: 100%;
+  > div {
+    @include centerFlex(flex, center, space-between);
+    width: 180px;
+  }
+}
+.arrowButton {
+  @include centerFlex(flex, center, center);
+  @include buttonStyle("", 40px, 40px, transparent);
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: background-image 0.3s ease;
+}
+.leftArrowButton {
+  height: 18px;
+  width: 18px;
+  background-image: url("../../../assets/img/arrowLeft.png");
+}
+.leftArrowButton:hover {
+  transform: scale(1.2) translateX(-5px);
+  transition: transform 0.3s ease, background-image 0.3s ease;
+  background-image: url("../../../assets/img/arrowLeftHover.png");
+}
+.rightArrowButton {
+  height: 18px;
+  width: 18px;
+  background-image: url("../../../assets/img/arrowRight.png");
+}
+.rightArrowButton:hover {
+  transform: scale(1.2) translateX(5px);
+  transition: transform 0.3s ease, background-image 0.3s ease;
+  background-image: url("../../../assets/img/arrowRightHover.png");
+}
+.sliderQuotes {
+  position: absolute;
+  top: 4px;
+  z-index: 10;
+  img {
+    width: 64px;
+  }
+}
+@media (min-width: 1920px) {
+  .sliderAllElements {
+    max-width: 3500px;
+  }
+}
+@media (max-width: 1100px) {
+  .section{
+    padding-top: 80px;
+  }
+  .sliderElementBox{
+    flex: 0 0 450px;
+  } 
+  .sliderVectorText{
+    width: 500px;
+  }
+}
+@media (max-width: 900px) {
+  .sliderElementBox{
+    flex: 0 0 350px;
+  } 
+  .sliderVectorText{
+    width: 400px;
+    >span{
+      margin-right: 24px;
+    }
+  }
+  h2{
+    @include fontStyle(24px, #3dcfb6, 700);
+    margin: 0 16px;
+  }
+}
+@media (max-width: 600px) {
+  .sliderElementBox{
+    flex: 0 0 200px;
+    height: 380px;
+    >span{
+      margin-top: 64px;
+    }
+  } 
+  .sliderVectorText{
+    width: 260px;
+    >span{
+      @include fontStyle(14px, "", 400);
+      margin-right: 24px;
+    }
+  }
+}

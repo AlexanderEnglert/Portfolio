@@ -1,0 +1,90 @@
+@import '../../../styles.scss';
+section{
+    @include centerFlex(flex, '', center);
+    margin: 0 96px;
+    padding-top: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+.contactTextBox{
+    width: 570px;
+    height: 340px;
+}
+.contactText{
+    @include centerFlex(flex, '', space-between);
+    @include fontStyle(16px, #ffffff, 400);
+    height: 120px;
+    flex-direction: column;
+}
+.contactTextShort{
+    @include centerFlex(flex, center, '');
+    gap: 4px;
+    flex-wrap: wrap
+}
+.contactTextColorChange{
+    @include fontStyle(16px, #3DCFB6, 700);
+}
+@media (min-width: 2050px) {
+    section{
+        margin: 0;
+    }
+}
+@media (min-width: 1921px) {
+    main{
+        width: 100%;
+        max-width: 1920px;
+    }
+}
+@media (max-width: 1400px) {
+    .contactTextBox{
+        width: 440px;
+        height: 380px;
+    }
+}
+@media (max-width: 1200px) {
+    section{
+        margin: 0 48px;
+    }
+}
+@media (max-width: 1100px) {
+    section{
+        @include centerFlex(flex, center, '');
+        padding-top: 80px;
+        flex-direction: column;
+        margin: 0 96px;
+    }
+    .contactTextBox{
+        width: 100%;
+        height: auto;
+    }
+    app-contact-me-email{
+        margin-top: 48px;
+        width: 100%;
+    }
+}
+@media (max-width: 1100px) {
+    section{
+        margin: 0 48px;
+    }
+    .contactText{
+        height: 140px;
+    }
+}
+@media (max-width: 600px){
+    section{
+        margin: 0 16px;
+    }
+    .contactText{
+        margin-top: 16px;
+        height: fit-content;
+        gap: 24px;
+    }
+    .sectionHeadline{
+        margin-top: 16px;
+    }
+}
+@media (max-width: 400px){
+    .contactTextShort{
+        flex-wrap: wrap;
+    }
+}

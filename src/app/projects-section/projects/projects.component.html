@@ -1,0 +1,23 @@
+<main class="normalBackground">
+    <section>
+        <div id="projectSection">
+            <h2 class="sectionHeadlineSmall karlaFont">Portfolio</h2>
+            <h1 class="sectionHeadline firaCodeFont">{{translations.projects.projectsHeadline}}</h1>
+            <span class="projectExploreText karlaFont">{{translations.projects.projectsMainText}}</span>
+        </div>
+        <div class="projectsBox">
+            <div class="projectHorizontalVector"></div>
+            <div class="projectTextImg" #projectItem *ngFor="let item of projectImg; let i = index">
+                <div (click)="openPopUpWindow(i)" class="projectText">
+                  <span class="projectTextName firaCodeFont">{{ projectName[i] }}</span>
+                  <span class="projectTextTools karlaFont" [innerHTML]="projectTools[i]"></span>
+                </div>
+                <div class="projectsImgBox" [ngStyle]="{'margin-top': getMarginTop(i)}">
+                  <img class="projectsPicture" [src]="'../../../assets/img/' + item">
+                  <img class="projectsImgBackground" src="../../../assets/img/projectsImgBackground.png">
+                </div>
+            </div>
+            <div class="projectHorizontalVector"></div>
+        </div>   
+    </section>
+</main>

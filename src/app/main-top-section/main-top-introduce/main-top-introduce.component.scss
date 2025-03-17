@@ -1,0 +1,138 @@
+@import "../../../styles.scss";
+section {
+  @include centerFlex(flex, center, center);
+  height: 230px;
+  width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nameStyle {
+  display: flex;
+  width: auto;
+  gap: 16px;  
+}
+.nameTitle{
+  @include fontStyle(64px, #d9d9d9, 700);
+}
+.nameStyle span {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  width: fit-content;
+  animation: typing 2s steps(18, end) forwards, blinkCursor 0.8s step-end infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 11s;
+  max-width: 0;
+  opacity: 0;
+}
+.nameStyle span.done,
+.jobTitle.done {
+  border-right: none !important;
+}
+.jobTitle {
+  @include fontStyle(40px, #d9d9d9, 400);
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  width: fit-content;
+  animation: typing 2s steps(16, end) forwards, blinkCursor 0.8s step-end infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 8.5s, 10.5s;
+  max-width: 0;
+  opacity: 0;
+}
+.noAnimation {
+  animation: none !important;
+  max-width: 100% !important;
+  opacity: 1 !important;
+  border-right: none !important;
+}
+.nameButtons {
+  @include centerFlex(flex, center, end);
+  flex-direction: column;
+  text-align: center;
+  gap: 40px;
+  height: 220px;
+}
+.buttonContactAndCheck {
+  width: 360px;
+  gap: 48px;
+  display: flex;
+}
+.aContactCheck {
+  @include fontStyle(18px, #ffffff, 400);
+  @include buttonStyle(100px, 48px, "", transparent);
+  @include centerFlex(flex, center, center);
+  text-decoration: none;
+  gap: 10px;
+  border: 1px solid #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #3dcfb6;
+    color: #3dcfb6;
+  }
+  > span {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  &:hover span {
+    animation: scrollText 1.5s linear infinite;
+  }
+}
+@media (max-width: 800px) {
+  section {
+    top: 50%;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  section {
+    height: fit-content;
+    width: 100%;
+  }
+  .jobTitle {
+    @include fontStyle(24px, #d9d9d9, 400);
+  }
+  .nameStyle span {
+    white-space: normal;
+  }
+  .nameButtons {
+    height: fit-content;
+    gap: 32px;
+  }
+  .nameStyle {
+    width: 310px;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+  }
+}
+@media (max-width: 400px) {
+  section {
+    top: 53%;
+  }
+  .buttonContactAndCheck{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .nameButtons {
+    gap: 16px;
+  }
+  .nameTitle {
+    @include fontStyle(48px, #d9d9d9, 700);
+  }
+}

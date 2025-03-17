@@ -1,0 +1,466 @@
+@import "../../styles.scss";
+header {
+  height: 98px;
+  background: linear-gradient(180deg, black -90%, transparent 100%);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+main{
+  @include centerFlex(flex, center, space-between);
+  width: 100%;
+  height: 100%;
+}
+section {
+  width: 410px;
+  margin-left: 96px;
+  height: 28px;
+  gap: 24px;
+  display: flex;
+  align-items: center;
+}
+.headerLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  background: linear-gradient(90deg, white, white);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transition: background-size 0.3s ease-in-out;
+  &:hover {
+    color: #3dcfb6;
+    background-size: 100% 2px;
+    cursor: pointer;
+  }
+}
+.languageChange {
+  position: relative;
+  width: 84px;
+  height: 28px;
+  border: 1px solid #3dcfb6;
+  border-radius: 100px;
+}
+.languageEssentials {
+  height: 28px;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+}
+.languageActive {
+  background-color: #3dcfb6;
+  width: 44px;
+  border-radius: 100px;
+  z-index: 1;
+  color: #ffffff;
+}
+.languageNotActive {
+  width: 50px;
+  background-color: rgb(28, 28, 28);
+  color: #3dcfb6;
+  &:hover {
+    border: solid 1px #ffffff;
+  }
+}
+.borderRightRound {
+  border-radius: 0 100px 100px 0;
+}
+.borderLeftRound {
+  border-radius: 100px 0 0 100px;
+}
+.englisch {
+  left: 0;
+}
+.german {
+  right: 0;
+}
+path {
+  fill: none;
+  stroke: #3dcfb6;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 2.5s ease forwards;
+}
+.e {
+  animation-delay: 1s;
+}
+.e-group {
+  transform: rotate(-90deg) translate(-80px, 0px);
+  transform-origin: 50px 50px;
+}
+.animationDisabled {
+  path,
+  .headerName .nameTextFirst,
+  .headerName .nameTextSecond,
+  .logoName {
+      animation: none !important;
+  }
+}
+.animationEnabled path {
+    animation: draw 2.5s ease forwards !important;
+}
+.animationEnabled .headerName .nameTextFirst,
+.animationEnabled .headerName .nameTextSecond {
+    animation: typing 1s steps(9, end) forwards, blinkCursor 0.8s step-end infinite !important;
+}
+.animationEnabled .logoName {
+    animation: moveToHeader 2s ease-in-out forwards 6.5s !important;
+}
+@keyframes draw {
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.logoName {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%) scale(1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 1001;
+  svg {
+    width: min-content;
+    height: 220px;
+    transition: width 0.5s ease-in-out;
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    transition: font-size 0.5s ease-in-out;
+    @include fontStyle(64px, #ffffff, 600);
+  }
+}
+.logoName.finalPosition {
+  position: absolute;
+  top: 0px;
+  right: 48px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoName .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+}
+@keyframes scaleLogo {
+  from {
+    height: 220px;
+    width: 220px;
+  }
+  to {
+    height: 100px;
+    width: 100px;
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.headerName {
+  opacity: 1;
+}
+.fullscreen-overlay.animationActive {
+  animation: fadeOut 2s ease forwards 6.5s;
+}
+.logoName.animationActive {
+  animation: moveToHeader 2s ease-in-out forwards 6.5s;
+}
+.logoName.animationActive .svg-wrapper {
+  animation: scaleLogo 2s ease-in-out forwards 6.5s;
+}
+.headerName.animationActive {
+  animation: scaleHeaderName 2s ease-in-out forwards 6.5s;
+}
+.fullscreen-overlay.animationActive.fastAnimation {
+  animation-duration: 2s !important;
+  animation-delay: 0s
+}
+.logoName.animationActive.fastAnimation {
+  animation-duration: 2s !important;
+  animation-delay: 0s
+}
+.logoName.animationActive.fastAnimation .svg-wrapper {
+  animation-duration: 2s !important;
+  animation-delay: 0s
+}
+.headerName.animationActive.fastAnimation {
+  animation-duration: 2s !important;
+  animation-delay: 0s
+}
+.headerName .nameTextFirst, .headerName .nameTextSecond {
+  display: inline-block;
+  overflow: hidden; 
+  border-right: 2px solid white;
+  white-space: nowrap;
+  width: fit-content;
+  max-width: auto;
+  opacity: 0;
+}
+$first-text-delay: 2s;
+$second-text-delay: 4.5s, 6s;
+.headerName .nameTextFirst {
+  animation: typing 1s steps(9, end) forwards, blinkCursor 0.8s step-end infinite;
+  animation-fill-mode: forwards;
+  animation-delay: $first-text-delay;
+}
+.headerName .nameTextSecond {
+  animation: typing 1s steps(7, end) forwards, blinkCursor 0.8s step-end infinite;
+  animation-fill-mode: forwards;
+  animation-delay: $second-text-delay;
+}
+.headerName .nameTextFirst.done, 
+.headerName .nameTextSecond.done {
+  border-right: none !important;
+}
+@keyframes scaleHeaderName {
+   from {
+    font-size: 64px;
+  }
+  to {
+    font-size: 40px;
+  }
+}
+@keyframes moveToHeader {
+  from {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    top: 0px;
+    right: 48px;
+    transform: translate(0, 0) scale(0.67);
+    opacity: 1;
+  }
+}
+@keyframes moveToHeaderSmall {
+  from {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    top: 0px;
+    right: 0px; 
+    transform: translate(0, 0) scale(0.67);
+    opacity: 1;
+  }
+}
+@keyframes moveToHeaderSmallLeft {
+  from {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    top: 0px;
+    left: 0px;
+    right: auto;
+    transform: translate(0, 0) scale(0.67);
+    opacity: 1;
+  }
+}
+@keyframes moveToHeaderLeft {
+  from {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    top: 0px;
+    left: -8px;
+    right: auto;
+    transform: translate(0, 0) scale(0.67);
+    opacity: 1;
+  }
+}
+.linkBar {
+  display: none;
+}
+@media (min-width: 1921px) {
+  main {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  .logoName.finalPosition {
+    top: 0px;
+    right: -48px;
+  }
+  @keyframes moveToHeaderBig {
+    from {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%) scale(1);
+      opacity: 1;
+    }
+    to {
+      top: 0px;
+      right: calc((100vw - 1920px) / 2 - 48px);
+      transform: translate(0, 0) scale(0.67);
+      opacity: 1;
+    }
+  }
+  .logoName.animationActive {
+    animation: moveToHeaderBig 2s ease-in-out forwards 6.5s;
+  }
+  section {
+    margin: 0;
+  }
+  header{
+      display: flex;
+      justify-content: center;
+  }
+}
+@media (max-width: 1200px) {
+  section {
+    margin-left: 48px;
+  }
+  .logoName.animationActive {
+    animation: moveToHeaderSmall 2s ease-in-out forwards 6.5s;
+  }
+  .logoName.animationActive.fastAnimation {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+}
+@media (max-width: 800px) {
+  main{
+    position: relative;
+  }
+  .fullscreen-overlay.animationActive {
+    animation: fadeOut 2s ease forwards 3.5s;
+  }
+  .logoName.animationActive {
+    animation: moveToHeaderSmallLeft 2s ease-in-out forwards 3.5s;
+  }
+  .logoName.animationActive .svg-wrapper {
+    animation: scaleLogo 2s ease-in-out forwards 3.5s;
+  }
+  .headerName.animationActive {
+    animation: scaleHeaderName 2s ease-in-out forwards 3.5s;
+  }
+  .fullscreen-overlay.animationActive.fastAnimation {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+  .logoName.animationActive.fastAnimation {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+  .logoName.animationActive.fastAnimation .svg-wrapper {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+  .headerName.animationActive.fastAnimation {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+  .headerName {
+    display: none !important;
+  }
+  .linkBar {
+    position: absolute;
+    z-index: 20;
+    right: 24px;
+    display: block;
+    background-image: url("../../assets/img/linkBar.png");
+    background-position: center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    &:hover {
+      background-image: url("../../assets/img/linkBarHover.png");
+    }
+  }
+  section {
+    position: absolute;
+    top: 66px;
+    right: 24px;
+    background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
+    width: 200px;
+    height: 170px;
+    padding: 24px 0;
+    gap: 24px;
+    border-radius: 30px;
+    border: 1px solid #3dcfb6;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    z-index: 2000;
+  }
+  .headerLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 24px;
+    height: 120px;
+    width: 100px;
+  }
+  .languageChangePopUp {
+    width: 100px;
+  }
+  .menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 1900;
+  }
+}
+@media (max-width: 600px) {
+  .linkBar {
+    right: 16px;
+  }
+  .logoName.finalPosition {
+    right: auto;
+    left: -8px;
+  }
+  .logoName.animationActive {
+    animation: moveToHeaderLeft 2s ease-in-out forwards 3.5s;  
+  }
+  .logoName.animationActive.fastAnimation {
+    animation-duration: 0s !important;
+    animation-delay: 0s
+  }
+}

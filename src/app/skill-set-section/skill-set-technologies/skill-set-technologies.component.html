@@ -1,0 +1,24 @@
+<section>
+    <div *ngFor="let item of skillIcons; let i = index" #skillItem class="skill-item">
+        <img [src]="'../../../assets/img/' + item + '.png'">
+        <span class="firaCodeFont" [innerHTML]="skillIconsText[i]"></span>
+    </div>
+    <div class="skillSetGrowth" #growthMindsetItem>
+        <img src="../../../assets/img/growthMindsetIcon.png">
+        <span class="firaCodeFont">Growth <br> mindset</span>
+        <div class="skillSetGrowthBubble">
+            <span class="karlaFont">{{ translations.skillSetTech.skillSetText }}</span>
+            <div class="growthNewTools">
+                <div>
+                    <img src="../../../assets/img/reactIcon.png">
+                    <span class="karlaFont">React</span>
+                </div>
+                <div>
+                    <img src="../../../assets/img/vueJsIcon.png">
+                    <span class="karlaFont">Vue Js</span>
+                </div>
+            </div>
+            <div class="speechBubbleTail"></div>
+        </div>
+    </div>
+</section>

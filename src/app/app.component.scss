@@ -1,0 +1,12 @@
+section{
+    background-color: rgb(28, 28, 28);
+}
+@media (min-width: 1921px) {
+    .bigWidthStyle{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+

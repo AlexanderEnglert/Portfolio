@@ -1,0 +1,463 @@
+@import '../../../styles.scss';
+section{
+    @include buttonStyle(30px, 660px, 1250px, '');
+    @include centerFlex(flex, '', space-between);
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #3DCFB6;
+    z-index: 40;
+    transform: translate(100%, -50%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+section.show {
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+.popUpWindowStyle{
+    display: flex;
+    flex-direction: column;
+}
+.popUpWindowAllText{
+    height: 490px;
+    width: 500px;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+.popUpWindowHeadline{
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+}
+.popUpWindowHeadlineNumber{
+    @include fontStyle(128px, #3DCFB6, 700);
+}
+.popUpWindowHeadlineText{
+    @include fontStyle(64px, #ffffff, 700);
+}
+.popUpWindowMainPart{
+    @include centerFlex(flex, '', space-between);
+    height: 200px;
+    width: 100%;
+    flex-direction: column;
+}
+.popUpWindowMainText{
+    @include fontStyle(18px, #ffffff, 400);
+}
+.buttonPopUp{
+    @include fontStyle(18px, #ffffff, 400);
+    @include buttonStyle(100px, 48px, '', transparent);
+    @include centerFlex(flex, center, center);
+    text-decoration: none;
+    gap: 10px;
+    border: 1px solid #FFFFFF;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #3DCFB6;
+        color: #3DCFB6;
+        img {
+            transform: rotate(-45deg) translate(5px, 0);
+        }
+  }
+    >span{
+        display: inline-block;
+        transform: translateX(0);
+        transition: transform 0.3s ease; 
+    }
+    img {
+        height: 10px;
+        width: 10px;
+        transform: rotate(-45deg);
+        transition: transform 0.3s ease; 
+    }
+}
+.popUpWindowButtons{
+    @include centerFlex(flex, center, '');
+    margin-top: 32px;
+    gap: 32px;
+}
+.popUpWindowSmallIconText{
+    @include centerFlex(flex, center, '');
+    color: #FFFFFF;
+    height: 24px;
+    gap: 16px;
+    >div{
+        @include centerFlex(flex, center, '');
+        gap: 4px;
+    }
+    img{
+        height: 24px;
+        width: 24px;
+    }
+}
+.popUpWindowsBigImgClose{
+    @include centerFlex(flex, end, '');
+    flex-direction: column;
+    margin-top: 72px;
+    margin-right: 80px;
+}
+.closePopUpButton{
+    @include fontStyle(18px, #ffffff, 400);
+    @include buttonStyle('', 32px, 32px, transparent);
+    @include centerFlex(flex, center, center);
+    border: none;
+    cursor: pointer;
+    background-position: center;
+    transition: transform 0.3s ease-in-out; 
+    &:hover{
+        >div{
+            display: none;
+        }
+        background-image: url('../../../assets/img/close.png');
+    }
+    >div{
+        height: 18px;
+        width: 18px;
+        background-position: center;
+        background-image: url('../../../assets/img/closeSmall.png');
+    }
+}
+.popUpWindowsBigImg{
+    margin-top: 48px;
+    width: 520px;
+    height: 370px;
+}
+.nextProject{
+    @include centerFlex(flex, center, end);
+    margin-top: 24px;
+    height: 40px;
+    width: 200px;
+    gap: 8px;
+    cursor: pointer;
+    >button{
+        @include fontStyle(18px, #3DCFB6, 400);
+        @include buttonStyle('', 22px, fit-content, transparent);
+        @include centerFlex(flex, center, center);
+        border: none;
+        cursor: pointer;
+    }
+    img{
+        width: 18px;
+        height: 18px;
+    }
+    &:hover{
+        button{
+            color: #FFFFFF;
+        }
+        img{
+            transition: transform 0.3s ease-in-out; 
+            transform: translateX(5px);
+        }
+    }
+}
+@keyframes slideInFromRight {
+    from {
+      transform: translateX(100%, -50%);
+      opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+}
+@media (max-width: 1400px) {
+    section{
+        @include buttonStyle(30px, 660px, 95vw, '');
+    }
+    .popUpWindowsBigImg{
+        height: 320px;
+        width: 470px;
+    }
+    .nextProject{
+        margin-top: 90px;
+    }
+    .popUpWindowAllText{
+        width: 420px;
+    }
+}
+@media (max-width: 1200px) {
+    .popUpWindowAllText{
+        margin-left: 48px;
+    }
+    .popUpWindowsBigImgClose{
+        margin-right: 48px
+    }
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(112px, #3DCFB6, 700);
+    }
+    .popUpWindowHeadlineText{
+        @include fontStyle(48px, #ffffff, 700);
+    }
+}
+@media (max-width: 1100px) {
+    .popUpWindowsBigImg{
+        height: 250px;
+        width: 400px;
+        margin-top: 96px;
+    }
+    .nextProject{
+        margin-top: 104px;
+    }
+}
+@media (max-width: 1000px) {
+    section{
+        @include centerFlex(flex, center, '');
+        flex-direction: column-reverse;
+        height: 95%;
+    }
+    .popUpWindowMainPart{
+        height: 220px;
+    }
+    .popUpWindowsBigImg{
+        margin-top: 0px;
+        margin-bottom: 24px
+    }
+    .popUpWindowsBigImgClose{
+        @include centerFlex(flex, center, '');
+        margin-right: 0;
+        margin-top: 72px;
+    }
+    .popUpWindowAllText{
+        @include centerFlex(flex, '', center);
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .nextProject{
+        margin-top: 0px;
+        position: absolute;
+        bottom: 30px;
+        right: 48px;
+    }
+    .closePopUpButton{
+        position: absolute;
+        top: 48px;
+        right: 48px;
+    }
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(80px, #3DCFB6, 700);
+    }
+}
+@media (max-width: 700px) {
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(72px, #3DCFB6, 700);
+    }
+    .popUpWindowHeadlineText{
+        @include fontStyle(40px, #ffffff, 700);
+    }
+    .popUpWindowsBigImg{
+        height: 240px;
+        width: 400px;
+        margin-top: 24px;
+    }
+    .closePopUpButton{
+        top: 24px;
+        right: 24px;
+    }
+    .popUpWindowMainText{
+        @include fontStyle(16px, #ffffff, 400);
+    }
+    .popUpWindowButtons{
+        @include centerFlex(flex, '', center);
+    }
+    .nextProject{
+        bottom: 24px;
+        right: 24px;
+    }
+}
+@media (max-width: 500px) {
+    .buttonPopUp{
+        margin-top: 24px;
+    }
+    .popUpWindowsBigImg{
+        height: 190px;
+        width: 310px;
+    }
+    .popUpWindowAllText{
+        width: 310px;
+        height: 520px;
+    }
+    .popUpWindowMainPart{
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+    .popUpWindowSmallIconText{
+        img{
+            height: 20px;
+            width: 20px;
+        }
+    }
+    .popUpWindowHeadlineText{
+        @include fontStyle(32px, #ffffff, 700);
+    }   
+    .popUpWindowSmallIconText{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .popUpWindowStyle{
+        width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    .popUpWindowsBigImg{
+        height: 180px;
+        width: 290px;
+        margin: 0;
+    }
+    .popUpWindowAllText{
+        width: 280px;
+    }
+    .popUpWindowButtons{
+        position: fixed;
+        bottom: 72px;
+        gap: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media (min-width: 1001px) and (max-height: 700px) {
+    section{
+        height: 95%;
+    }
+    .popUpWindowsBigImgClose{
+        margin-top: 48px;
+    }
+    .popUpWindowAllText{
+        margin-top: 48px;
+    }
+}
+@media (min-width: 1001px) and (max-height: 620px) {
+    .popUpWindowsBigImg{
+        height: 340px;
+    }
+    .nextProject{
+        margin-top: 60px;
+        margin-bottom: 24px;
+    }
+}
+@media (max-width: 1000px) and (max-height: 850px) {
+    .popUpWindowHeadline{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px
+    }
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(56px, #3DCFB6, 700);
+    }
+    .popUpWindowsBigImgClose{
+        margin-top: 64px;
+    }
+}
+@media (max-width: 1000px) and (max-height: 700px) {
+    .popUpWindowsBigImg{
+        margin-bottom: 16px;
+    }
+    .popUpWindowMainPart{
+        height: 140px;
+    }
+    .popUpWindowButtons{
+        margin-top: 16px;
+    }
+}
+@media (max-width: 1000px) and (max-height: 650px) {
+    .closePopUpButton{
+        top: 32px;
+        right: 32px;
+    }
+    .popUpWindowsBigImgClose{
+        margin-top: 32px;
+    }
+    .nextProject{
+        right: 32px;
+    }
+    .popUpWindowsBigImg{
+        height: 230px;
+        width: 380px;
+    }
+}
+@media (max-width: 1000px) and (max-height: 600px) {
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(40px, #3DCFB6, 700);
+    }
+    .popUpWindowHeadlineText{
+        @include fontStyle(40px, #FFFFFF, 700);
+    }
+    .popUpWindowsBigImg{
+        height: 200px;
+        width: 350px;
+    }
+}
+@media (max-width: 750px) and (min-height: 850px) {
+    .popUpWindowsBigImgClose{
+        margin-top: 88px;
+    }
+    .closePopUpButton{
+        top: 32px;
+    }
+    .popUpWindowMainPart{
+        height: 230px;
+    }
+    .popUpWindowAllText{
+        height: 540px;
+    }
+}
+@media (min-width: 750px) and (max-width: 1000px) and (min-height: 1000px) {
+    .popUpWindowAllText{
+        height: 580px;
+    }
+    .popUpWindowMainPart{
+        height: 220px;
+        margin-top: 24px;
+    }
+    .popUpWindowsBigImg{
+        margin-top: 120px;
+    }
+    .closePopUpButton{
+        margin-top: 48px;
+    }
+}
+@media (max-width: 600px) and (max-height: 800px) {
+    .popUpWindowsBigImg{
+        height: 120px;
+        width: 200px;
+    }
+    .popUpWindowsBigImgClose{
+        margin-top: 56px;
+    }
+    .popUpWindowAllText{
+        height: 500px;
+    }
+    .popUpWindowHeadlineNumber{
+        @include fontStyle(64px, #3DCFB6, 700);
+    }
+    .popUpWindowHeadlineText{
+        @include fontStyle(32px, #ffffff, 700);
+    }
+    .popUpWindowMainPart{
+        height: 180px;
+    }
+}
+@media (max-width: 600px) and (max-height: 700px) {
+    .popUpWindowsBigImgClose{
+        margin-top: 24px;
+    }
+    .popUpWindowsBigImg{
+        height: 120px;
+        width: 200px;
+    }
+    .popUpWindowMainPart{
+        height: 200px;
+    }
+    .popUpWindowAllText{
+        height: 510px;
+    }
+}
+
+

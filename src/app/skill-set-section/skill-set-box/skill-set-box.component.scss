@@ -1,0 +1,181 @@
+@import '../../../styles.scss';
+main{
+    background: radial-gradient(22.43% 43.85% at 1.22% 52.45%, rgba(21, 43, 39, 1) 0%, #1C1C1C 100%)
+}
+section{
+    @include centerFlex(flex, '', space-between);
+    margin: 0 96px;
+    padding-top: 120px;
+}
+.skillSetBox{
+    @include buttonStyle(30px, 100%, 540px, '');
+    @include centerFlex(flex, '', space-between);
+    padding:32px;
+    border: 1px solid #3DCFB6;
+    flex-direction: column;
+    gap: 32px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    background-color: rgb(31 46 43);
+}
+.skillSetDescription{
+    @include fontStyle(18px, #ffffff, 400);
+    height: 100%;
+    width: 512px;
+    >span{ 
+        margin-bottom: 32px;
+        display: block;
+    }
+}
+.skillSetText{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.skillSetBoxHeadline{
+    @include centerFlex(flex, '', space-between);
+    height: auto;
+    flex-direction: column; 
+    gap: 20px;
+}
+.skillSetTextHeadline{
+    @include centerFlex(flex, center, '');
+    @include fontStyle(24px, #ffffff, 700);
+    gap: 16px;
+}
+.skillSetHeadlineColor{
+    color: #3DCFB6;
+}
+.skillSetA{
+    @include buttonStyle(100px, 48px, fit-content, transparent);
+    @include centerFlex(flex, center, center);
+    padding: 0 16px;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid #3DCFB6;
+        color: #3DCFB6;
+    }
+    >span{
+        @include fontStyle(18px, '', 400);
+        display: inline-block;
+        word-spacing: 4px;
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+    &:hover span{
+        animation: scrollText 1.5s linear infinite;
+    }
+}
+@media (min-width: 2050px) {
+    section {
+        margin: 0;
+        margin-left: 96px;
+    }
+}
+@media (min-width: 1921px) {
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        max-width: 1920px;
+    }
+}
+@media (max-width: 1530px){
+    .skillSetDescription{
+        width: 412px;
+    }
+    .skillSetBox{
+        @include buttonStyle(30px, 100%, 440px, '');
+    }
+    .skillSetBoxHeadline{
+        height: fit-content;
+    }
+}
+@media (max-width: 1200px) {
+    section{
+        margin: 0 48px;
+        @include centerFlex(flex, center, space-between);
+    }
+}
+@media (max-width: 1100px) {
+   section{
+     display: flex;
+     flex-direction: column;
+     padding-top: 80px;
+   }
+   .skillSetBox{
+        @include buttonStyle(30px, 100%, 750px, '');
+    }
+    .skillSetDescription{
+        width: 722px;
+    }
+}
+@media (max-width: 950px) {
+    .skillSetBox{
+        @include buttonStyle(30px, 100%, 480px, '');
+        gap: 24px;
+    }
+    .skillSetDescription{
+        width: 480px;
+    }
+}
+@media (max-width: 600px) {
+    .skillSetBox{
+        @include buttonStyle(30px, 100%, 380px, '');
+    }
+    .skillSetDescription{
+        @include fontStyle(16px, #ffffff, 400);
+        width: 380px;
+    }
+    .skillSetTextHeadline{
+        width: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .german-gap {
+        gap: 4px;
+    }
+    .english-gap {
+        gap: 16px;
+    }
+}
+@media (max-width: 500px) {
+    .skillSetDescription{
+        @include fontStyle(16px, #ffffff, 400);
+        width: 320px;
+        margin-top: 0;
+        >span{
+            margin-bottom: 24px
+        }
+    }
+    .skillSetBox{
+        @include buttonStyle(30px, 100%, 320px, '');
+        padding: 24px;
+        gap: 8px;
+    }
+    .skillSetTextHeadline{
+        gap: 4px;
+    }
+    .headlineChange{
+        font-size: 36px;
+    }
+}
+@media (max-width: 400px) {
+    .skillSetDescription{
+        width: 260px;
+    }
+    .skillSetBox{
+        @include buttonStyle(30px, 100%, 260px, '');
+        padding: 16px;
+    }
+    .german-gap {
+        gap: 0px;
+    }
+}

@@ -1,0 +1,99 @@
+@import "../../styles.scss";
+section {
+  height: calc(100vh - 310px);
+  background-color: rgb(28, 28, 28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+main {
+  @include centerFlex(flex, center, "");
+  @include fontStyle(16px, #ffffff, 400);
+  flex: 1;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin-top: 100px;
+  h1 {
+    @include fontStyle(32px, #3dcfb6, 700);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: 48px;
+    margin-top: 24px
+  }
+  h4 {
+    @include fontStyle(18px, #3dcfb6, 600);
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+}
+.privacyText{
+    margin: 0 96px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(28, 28, 28);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3dcfb6;
+  box-shadow: inset 0px 24px #3dcfb6, inset 0px -24px #3dcfb6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #3dcfb6;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+@media (min-width: 2050px) {
+  .privacyText{
+      margin: 0;
+  }
+}
+@media (min-width: 1921px) {
+  main{
+      width: 100%;
+      max-width: 1920px;
+  }
+}
+@media (max-width: 1200px){
+    .privacyText{
+        margin: 0 48px;
+    }
+}
+@media (max-width: 800px) {
+  section {
+    height: calc(100vh - 270px);
+  }
+    .privacyText{
+        margin: 0 24px;
+    }
+}
+@media (max-width: 700px) {
+  section {
+    height: calc(100vh - 310px);
+  }
+}
+@media (max-width: 600px) {
+    .privacyText{
+        margin: 0 16px;
+    }
+    ul{
+        padding-inline-start: 0;
+    }
+}
+@media (max-width: 400px) {
+  main{
+    overflow-x: hidden;
+  }
+  .privacyText{
+    margin: 0 8px;
+    width: 95%;
+  }
+}

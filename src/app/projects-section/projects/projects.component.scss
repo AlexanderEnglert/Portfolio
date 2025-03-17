@@ -1,0 +1,147 @@
+@import '../../../styles.scss';
+section{
+    padding-top: 120px;
+    margin: 0 96px;
+    color: #ffffff;
+}
+.projectsBox{
+    width: auto;
+    height: auto;
+}
+.projectHorizontalVector{
+    width: 880px;
+    height: 0px;
+    border: 1px solid #3DCFB6;
+    display: block;
+}
+::ng-deep .greenVector {
+    display: inline-block;
+    color: #3DCFB6;
+  }
+.projectTextTools{
+    @include fontStyle(18px, '', 400);
+    margin-right: 32px;
+}
+.projectExploreText{
+    @include fontStyle(18px, '', 400);
+    margin: 24px 0px 40px 0px;
+    display: block;
+}
+.projectsPicture{
+    height: 190px;
+    width: 300px;
+    position: absolute;
+    left: -20px;
+    bottom: 30px;
+    border-radius: 16px;
+}
+.projectsImgBackground{
+    height: 190px;
+    width: 290px;
+}
+.projectText{
+    @include centerFlex(flex, center, space-between);
+    height: 110px;
+    border-top: 1px solid #3DCFB6;
+    border-bottom: 1px solid #3DCFB6; 
+    width: 880px;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(47,91,84);
+    }
+}
+.projectTextImg:hover .projectsImgBox{
+    display: flex;
+}
+.projectsImgBox{
+    position: relative;
+    display: none;
+    width: auto;
+    height: 210px;
+}
+.projectTextImg {
+    @include centerFlex(flex, center, space-between);
+    height: 110px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+.projectTextImg:nth-child(1) { transition-delay: 0.1s; }
+.projectTextImg:nth-child(2) { transition-delay: 0.3s; }
+.projectTextImg:nth-child(3) { transition-delay: 0.5s; }
+.projectTextImg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.projectTextName{
+    @include fontStyle(24px, '', 700);
+    margin-left: 32px;
+}
+@media (min-width: 2050px) {
+    section{
+        margin: 0;
+    }
+}
+@media (min-width: 1921px) {
+    main{
+        width: 100%;
+        max-width: 1920px;
+    }
+}
+@media (max-width: 1400px) {
+   .projectsImgBackground{
+        display: none;
+    }
+    .projectsPicture{
+       display: none;
+    }
+    .projectsImgBox{
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    section{
+        margin: 0 48px;
+    }
+}
+@media (max-width: 1100px) {
+    section{
+        margin: 0 96px;
+        padding-top: 80px;
+    }
+    .projectHorizontalVector{
+        width: auto;
+    }   
+}
+@media (max-width: 900px) {
+    section{
+        margin: 0 48px;
+    }
+}
+@media (max-width: 600px) {
+    section{
+        margin: 0 16px;
+    }
+    .projectText{
+        @include centerFlex(flex, start, center);
+        flex-direction: column;
+        gap: 8px;
+        >span{
+            margin-left: 16px;
+        }
+    }
+    .projectTextTools{
+        margin-right: 0;
+        margin-left: 16px;
+    }
+}
+@media (max-width: 400px) {
+    .projectText{
+        >span{
+            margin-left: 2px;
+        }
+    }
+    .projectTextTools{
+        margin-left: 2px;
+    }
+}

@@ -1,0 +1,50 @@
+<section>
+    <div class="contactEmailBox firaCodeFont">
+        <div class="contactEmailField">
+            <span>{{ translations.contactMeEmail.contactMeEmailName }}</span>
+            <form>
+                <label for="name"></label>
+                <input class="firaCodeFont" type="text" id="name" placeholder="{{ getPlaceholder('name', 'contactMeEmailNamePlaceholder', 'contactMeEmailNamePlaceholderAlternative') }}" 
+                [(ngModel)]="name" name="name" [class.error]="isFieldEmpty('name')"  (input)="trimLeadingSpaces($event, 'name'); ;checkFormValidity(); onInput('name')" (focus)="onFocus('name')" (blur)="onBlur('name')"/>
+            </form>
+        </div>
+        <div class="contactEmailField">
+            <span>{{ translations.contactMeEmail.contactMeEmailAdress }}</span>
+            <form novalidate>
+                <label for="email"></label>
+                <input class="firaCodeFont" type="email" id="email" [attr.placeholder]="getPlaceholder('email', 'contactMeEmailPlaceholder', 'contactMeEmailPlaceholderAlternative')"
+                [(ngModel)]="email" name="email" required [class.error]="isFieldEmpty('email')" (input)="trimLeadingSpaces($event, 'email'); ;checkFormValidity(); onInput('email'); validateEmail() " (focus)="onFocus('email')" 
+                (blur)="onBlur('email')" [ngClass]="{'invalid-email': !isEmailValid && email.length > 0 && touchedFields['email']}"  #emailInput="ngModel"/>
+            </form>
+            <div *ngIf="!isEmailValid && email.length > 0 && touchedFields['email']">
+                <h4 >{{ translations.contactMeEmail.contactMeEmailFail }}</h4>
+              </div>
+        </div>
+        <div class="contactEmailField">
+            <span>{{ translations.contactMeEmail.contactMeEmailFieldPlaceholder }}</span>
+            <textarea id="message" class="firaCodeFont"  placeholder="{{ getPlaceholder('message', 'contactMeEmailFieldPlaceholder', 'contactMeEmailFieldPlaceholderAlternative') }}" 
+            [(ngModel)]="textAreaValue" [class.error]="isFieldEmpty('message')" (input)="trimLeadingSpaces($event, 'textAreaValue'); onInput('message')" (focus)="onFocus('message')" (blur)="onBlur('message')" rows="5" cols="30"></textarea>
+        </div>
+        <div class="privacyPolicy">
+            <label class="checkBox1Style">
+                <input  type="checkbox" [(ngModel)]="checkbox1" (change)="checkFormValidity()" />
+                <span [ngClass]="{'error-checkbox': shouldHighlightCheckbox()}"></span>
+            </label>
+            <span class="karlaFont privacyPolicyText">{{ translations.contactMeEmail.contactMeEmailPrivacyFirst }} <a [routerLink]="['/privacy-policy']"> {{ translations.contactMeEmail.contactMeEmailPrivacyLink }} </a>
+                {{ translations.contactMeEmail.contactMeEmailPrivacySecond }}</span>
+        </div>
+        <div class="sendEmailButtonContainer">
+            <button class="sendEmailButton"  [disabled]="isButtonDisabled" (click)="validateAndSendEmail()">
+                <span> {{ translations.contactMeEmail.contactMeEmailButton }} ;)</span>
+            </button>
+        </div>
+    </div>
+    <div class="menuOverlay" [ngClass]="{ 'active': showSendMail }">
+        <div class="karlaFont sendMail" [ngClass]="{ 'active': showSendMail }">
+            <span>{{ translations.contactMeEmail.contactMeEmailSend }}</span>
+        </div>
+    </div> 
+</section>
+
+    
+   

@@ -1,0 +1,40 @@
+<footer class="normalBackground">
+    <main>
+        <section>
+            <div class="logoJobLocation">
+                <div [routerLink]="'/'" (click)="scrollToSection('header')"  class="logoNameFooter">
+                    <div class="logoVector karlaFont ">
+                        <svg viewBox="0 0 100 100">
+                            <path class="footerPath" d="M30,80 L50,20 L70,80" />
+                            <path class="footerPath" d="M40,60 L60,60" />
+                            <g class="pathGroup">
+                                <path class="footerPath" d="M100,20 L100,80" />
+                                <path class="footerPath" d="M100,20 L130,20" />
+                                <path class="footerPath" d="M100,50 L120,50" />
+                                <path class="footerPath" d="M100,80 L130,80" />
+                                <path class="footerPath" d="M130,15 L130,25" />
+                                <path class="footerPath" d="M130,75 L130,85" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="karlaFont">
+                        <span>Alexander</span>
+                        <span>Englert</span>
+                    </div>
+                </div>
+                <div class="jobLocationText karlaFont">
+                    <span>{{ translations.footer.footerJobTitle }}<br> Illerzell {{ translations.footer.footerCountry }}</span>
+                </div>
+            </div>
+            <div class="footerNameStyle">
+                <span class="footerNameYearText firaCodeFont">© Alexander Englert 2025</span>
+            </div>
+            <div class="linkSection karlaFont">
+                <a [attr.href]="'https://github.com/AlexanderEnglert'" target="_blank">Github</a>
+                <a [attr.href]="'https://www.linkedin.com/in/alexander-englert-783b8434b/'" target="_blank">LinkedIn</a>
+                <a href="mailto:aenglertymail23@gmail.com">Email</a>
+                <a [routerLink]="'/legal-notice'">{{ translations.footer.footerLegalNotice }}</a>
+            </div>
+        </section>
+    </main>
+</footer>

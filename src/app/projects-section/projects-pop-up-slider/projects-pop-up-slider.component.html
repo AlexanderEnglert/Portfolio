@@ -1,0 +1,42 @@
+<main class="normalBackground" *ngIf="isVisible">
+    <section [ngClass]="{ 'show': isVisible }">
+        <div class="popUpWindowAllText">
+           <div class="popUpWindowStyle">
+                <div class="popUpWindowHeadline">
+                    <span class="popUpWindowHeadlineNumber karlaFont" >0{{selectedIndex + 1}}</span>
+                    <span class="popUpWindowHeadlineText firaCodeFont">{{ projectName[selectedIndex] }}</span>
+                </div>
+                <div class="popUpWindowMainPart">
+                    <span class="sectionHeadlineSmall firaCodeFont">{{ this.translations.projectSlider.projectSliderSmallHeadline }}</span>
+                    <span class="popUpWindowMainText karlaFont">{{ projectDescription [selectedIndex]}}</span>
+                    <div class="popUpWindowSmallIconText">
+                        <div *ngFor="let item of projectTools[selectedIndex]; let i = index">
+                            <img [src]="'../../../assets/img/' + item.image">
+                            <span class="popUpWindowMainTools karlaFont">{{ projectTools[selectedIndex][i].name }}</span>
+                        </div> 
+                    </div>
+                </div>
+                <div class="popUpWindowButtons">
+                    <a [attr.href]="'https://github.com/AlexanderEnglert/' + projectGithub[selectedIndex]" target="_blank" style="width: 130px;" class="buttonPopUp karlaFont">
+                        <span>GitHub</span>
+                        <img src="../../../assets/img/arrowRightHover.png">
+                    </a>
+                    <a [attr.href]="'https://alexander-englert.de/' + projectLiveTest[selectedIndex]" target="_blank" style=" width: 140px;" class="buttonPopUp karlaFont">
+                        <span>Live Test</span>
+                        <img src="../../../assets/img/arrowRightHover.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="popUpWindowsBigImgClose">
+            <button (click)="closePopUp()" class="closePopUpButton">
+                <div></div>
+            </button>
+            <img *ngIf="selectedIndex >= 0 && projectImg[selectedIndex]" class="popUpWindowsBigImg" [src]="'../../../assets/img/' + projectImg[selectedIndex]">
+            <div (click)="nextProject(selectedIndex)" class="nextProject">
+                <button class="karlaFont">{{ this.translations.projectSlider.projectSliderNextButton }}</button>
+                <img src="../../../assets/img/arrowRightHover.png">
+            </div>
+        </div>
+    </section>
+</main>

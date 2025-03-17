@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.karlaFont {
+  font-family: "Karla", sans-serif;
+}
+.firaCodeFont {
+  font-family: "Fira Code", sans-serif;
+}
+.none {
+  display: none;
+}
+.sectionHeadline {
+  font-weight: 700;
+  font-size: 64px;
+  color: #3dcfb6;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.sectionHeadlineSmall {
+  font-weight: 700;
+  font-size: 24px;
+  color: #3dcfb6;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(28, 28, 28);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3dcfb6;
+  box-shadow: inset 0px 24px rgb(28, 28, 28), inset 0px -24px rgb(28, 28, 28);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+.animate-box {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
+  transition: opacity 1s ease-out, transform 1s ease-out !important;
+}
+@mixin fontStyle($size, $fontColor, $fontWeight) {
+  font-size: $size;
+  color: $fontColor;
+  font-weight: $fontWeight;
+}
+@mixin centerFlex($flex, $align, $justify) {
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin buttonStyle($borderRad, $height, $width, $background) {
+  border-radius: $borderRad;
+  height: $height;
+  width: $width;
+  background-color: $background;
+}
+@keyframes typing {
+  0% {
+    opacity: 0;
+    max-width: 0;
+  }
+  100% {
+    opacity: 1;
+    max-width: 100%;
+  }
+}
+@keyframes blinkCursor {
+  0%, 100% { border-right-color: white; } 
+  50% { border-right-color: transparent; }
+}
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  33% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  66% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 900px) {
+  .sectionHeadline {
+    font-size: 56px;
+  }
+}
+@media (max-width: 400px) {
+  .sectionHeadline {
+    font-size: 44px;
+  }
+}
+@font-face {
+  font-display: swap;
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/fira-code-v22-latin-300.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/fira-code-v22-latin-regular.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/fira-code-v22-latin-500.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/fira-code-v22-latin-600.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap; 
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/fira-code-v22-latin-700.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/karla-v31-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/karla-v31-latin-200.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 200;
+  src: url("./assets/fonts/karla-v31-latin-200italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/karla-v31-latin-300.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./assets/fonts/karla-v31-latin-300italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 400;
+  src: url("./assets/fonts/karla-v31-latin-italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap; 
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/karla-v31-latin-500.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 500;
+  src: url("./assets/fonts/karla-v31-latin-500italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/karla-v31-latin-600.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 600;
+  src: url("./assets/fonts/karla-v31-latin-600italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap; 
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/karla-v31-latin-700.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 700;
+  src: url("./assets/fonts/karla-v31-latin-700italic.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  src: url("./assets/fonts/karla-v31-latin-800.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Karla";
+  font-style: italic;
+  font-weight: 800;
+  src: url("./assets/fonts/karla-v31-latin-800italic.woff2") format("woff2");
+}
+
+

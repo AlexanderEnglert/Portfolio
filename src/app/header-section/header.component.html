@@ -1,0 +1,67 @@
+<header id="header">
+    <div class="fullscreen-overlay" *ngIf="showIntro">
+      <div class="logoName introLogo">
+        <div class="svg-wrapper karlaFont">
+          <svg viewBox="0 0 100 100">
+              <path d="M30,80 L50,20 L70,80" />
+              <path d="M40,60 L60,60" />
+              <g class="e-group">
+                  <path class="e" d="M100,20 L100,80" />
+                  <path class="e" d="M100,20 L130,20" />
+                  <path class="e" d="M100,50 L120,50" />
+                  <path class="e" d="M100,80 L130,80" />
+                  <path class="e" d="M130,15 L130,25" />
+                  <path class="e" d="M130,75 L130,85" />
+              </g>
+          </svg>
+        </div>
+        <div class="karlaFont headerName">
+          <span class="nameTextFirst">Alexander</span>
+          <span class="nameTextSecond">Englert</span>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="menuOverlay" *ngIf="isMenuVisible" (click)="toggleMenu()"></div>
+      <section *ngIf="isMenuVisible || screenWidth > 800">
+        <div class="languageChangePopUp">
+          <div class="languageChange">
+            <button class="languageEssentials englisch "[ngClass]="{ languageActive: currentLanguage === 'en', languageNotActive: currentLanguage !== 'en', borderLeftRound: currentLanguage !== 'en'}"
+              (click)="changeLanguage('en')">
+              <span>EN</span>
+            </button>
+            <button class="languageEssentials german" [ngClass]="{ languageActive: currentLanguage === 'de', languageNotActive: currentLanguage !== 'de', borderRightRound: currentLanguage !== 'de' }" (click)="changeLanguage('de')" >
+              <span>DE</span>
+            </button>
+          </div>
+        </div>
+        <div class="headerLinks firaCodeFont">
+          <a [routerLink]="'/'" (click)="scrollToSection('aboutMeSection')">{{ translations.header.aboutMe }}</a>
+          <a [routerLink]="'/'" (click)="scrollToSection('skillSetSection')">{{ translations.header.skills }}</a>
+          <a [routerLink]="'/'" (click)="scrollToSection('projectSection')">{{ translations.header.projects }}</a>
+        </div>
+      </section>
+      <div [routerLink]="'/'" class="logoName headerLogo">
+        <div class="svg-wrapper karlaFont ">
+          <svg viewBox="0 0 100 100">
+              <path d="M30,80 L50,20 L70,80" />
+              <path d="M40,60 L60,60" />
+              <g class="e-group">
+                  <path class="e" d="M100,20 L100,80" />
+                  <path class="e" d="M100,20 L130,20" />
+                  <path class="e" d="M100,50 L120,50" />
+                  <path class="e" d="M100,80 L130,80" />
+                  <path class="e" d="M130,15 L130,25" />
+                  <path class="e" d="M130,75 L130,85" />
+              </g>
+          </svg>
+        </div>
+        <div class="karlaFont headerName">
+          <span class="nameTextFirst">Alexander</span>
+          <span class="nameTextSecond">Englert</span>
+        </div>
+      </div>
+      <div class="linkBar" (click)="toggleMenu()"></div>
+    </main>
+  </header>
+  

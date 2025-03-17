@@ -1,0 +1,18 @@
+app-main-top-contact{
+    max-width: 1920px;
+    width: 100%;
+}
+section{
+    background: linear-gradient(45deg, #1c1c1c 40%, #08463b);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >div{
+        height: 100%;
+        max-width: 1921px;
+        display: flex;
+        width: 100%;
+        overflow-x: hidden;
+    }
+}

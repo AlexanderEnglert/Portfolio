@@ -1,0 +1,135 @@
+@import '../../../styles.scss';
+section{
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 640px;
+    gap: 72px;
+    margin-top: 48px;
+    >div{
+        @include fontStyle(18px, #ffffff, 400);
+        @include buttonStyle('', 120px, 105px, '');
+        @include centerFlex(flex, center, '');
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+        > img{
+            height: 64px;
+            width: 64px;
+            &:hover{
+                transform: scale(1.1);   
+                transition: transform 0.3s ease-in-out;             
+            }
+        }
+    }
+}
+.skillSetGrowth{
+    >div{
+        @include buttonStyle(20px, 120px, 190px, #ffffff);
+        position: absolute;
+        color: #3DCFB6; 
+        bottom: 95%;
+        left: 13%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        z-index: 1; 
+        display: none;
+    }
+    &:hover{
+        color: #3DCFB6;
+        >div{
+            display: flex;
+        }
+    }
+    img{
+        &:hover{
+            transform: scale(1.1);    
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+}
+.skill-item, .skillSetGrowth {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.skill-item.visible, .skillSetGrowth.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.speechBubbleTail {
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ffffff;
+    z-index: 0;
+}
+.skillSetGrowthBubble{
+    @include fontStyle(16px, #ffffff, 400);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    >span{
+        text-align: center;
+    }
+}
+.growthNewTools{
+    @include centerFlex(flex, center, center);
+    gap: 16px;
+    >div{
+        display: flex;
+        flex-direction: column;
+        margin-top: 12px;
+        gap: 6px;
+        >span{
+            @include fontStyle(14px, '', 400);
+        }
+    }
+    img{
+        width: 32px;
+        height: 32px;
+    }
+}
+@media (max-width: 1440px){
+    section{
+        width: 365px;
+        gap: 24px;
+        margin-top: 64px;
+        height: auto;
+        margin-right: 0;
+    }
+}
+@media (max-width: 1200px) {
+    section{
+        margin-top: 56px;
+    }
+}
+@media (max-width: 1100px) {
+    section{
+        width: 798px;
+        gap: 72px;
+        margin-top: 48px;
+        @include centerFlex(flex, center, center);
+    }
+}
+@media (max-width: 900px) {
+    section{
+        width: 480px;
+        gap: 40px;
+        @include centerFlex(flex, center, center);
+    }
+}
+@media (max-width: 500px) {
+    section{
+        width: 250px;
+    }
+}
+@media (max-width: 400px) {
+   section{
+        @include centerFlex(flex, center, start);
+   }
+}

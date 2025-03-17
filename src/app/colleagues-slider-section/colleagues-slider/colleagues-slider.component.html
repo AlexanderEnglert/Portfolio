@@ -1,0 +1,21 @@
+<main class="normalBackground">
+  <section>
+    <h2 class="headlineMarginZero firaCodeFont">
+      {{ translations.colleaguessSlider.colleaguessHeadline }}
+    </h2>
+    <div class="sliderContainer">
+      <div class="sliderQuotes" [style.left.px]="picturePosition">
+        <img src="../../../assets/img/quotesIcon.png" />
+      </div>
+      <div class="sliderAllElements"  [style.transition]="transitionStyle">
+        <div *ngFor="let item of displayedItems; let i = index" class="sliderElementBox  karlaFont" [class.active]="i === 0">
+          <span>{{ item.text }}</span>
+          <div class="sliderVectorText">
+            <div></div>
+            <span>{{ item.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

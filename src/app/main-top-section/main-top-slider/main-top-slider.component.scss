@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+main{
+    width: 100%;
+    overflow-x: clip;
+    position: relative;
+    height: auto;
+}
+.scrollingSection {
+    @include centerFlex(flex, center, '');
+    position: absolute;
+    width: 101%;
+    height: 65px;
+    bottom: 5px;
+    transform: rotate(-3deg);
+    transform-origin: top left;
+    background-color: #ffffff0d;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+.scrollingWrapper {
+    display: flex;
+    width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.scrollingImage {
+    display: flex;
+    width: max-content;
+    animation: scrollImage 15s linear infinite;
+}
+.itemWrapper {
+    @include centerFlex(flex, center, '');
+    gap: 56px;
+    white-space: nowrap;
+    padding-right: 56px;
+}
+.radioButton {
+    height: 8px;
+    width: 8px;
+    background-color: #3DCFB6;
+    border-radius: 50%;
+}
+.sliderTextElements {
+    @include fontStyle(32px, #3DCFB6, 400);
+}
+@keyframes scrollImage {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}

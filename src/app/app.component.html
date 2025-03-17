@@ -1,0 +1,24 @@
+
+
+<app-header></app-header>
+<main *ngIf="!showLegalNotice && !showPrivacyPolicy">
+    <app-main-top-part></app-main-top-part>
+    <section>
+        <app-about-me class="bigWidthStyle"></app-about-me>
+        <app-skill-set-box class="bigWidthStyle"></app-skill-set-box>
+        <app-projects class="bigWidthStyle"></app-projects>
+        <app-colleagues-slider></app-colleagues-slider>
+        <app-contact-me class="bigWidthStyle"></app-contact-me>
+        <app-projects-pop-up-slider></app-projects-pop-up-slider>
+        <router-outlet></router-outlet>
+    </section>
+</main>
+<section class="LegalNotice" *ngIf="showLegalNotice">
+    <router-outlet></router-outlet>
+</section>
+<section class="bigWidthStyle" *ngIf="showPrivacyPolicy">
+    <router-outlet></router-outlet>
+</section>
+<app-footer></app-footer>
+
+

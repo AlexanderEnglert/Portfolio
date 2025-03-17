@@ -1,0 +1,132 @@
+@import '../../../styles.scss';
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(28, 28, 28);
+}
+main{
+    height: 310px;
+    position: relative;
+    margin: 0 96px;
+}
+section{
+    @include centerFlex(flex, center, space-between);
+    height: 130px;
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+}
+.logoNameFooter{
+    @include centerFlex(flex, center, left);
+    gap: 12px;
+    height: 48px;
+    cursor: pointer;
+    >div{
+        @include fontStyle(22px, #ffffff, 600);
+        display: flex;
+        flex-direction: column;
+    }
+}
+.footerPath {
+    fill: none;
+    stroke: #3dcfb6;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+.pathGroup {
+    transform: rotate(-90deg) translate(-80px, 0px);
+    transform-origin: 50px 50px;
+}
+.logoVector{
+    height: 64px;
+    width: 64px;
+    margin-left: -8px
+}
+.jobLocationText{
+    @include fontStyle(16px, #ffffff, 400);
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.logoJobLocation{
+    @include centerFlex(flex, '', space-between);
+    flex-direction: column;
+    height: 100%;
+}
+.linkSection{
+    @include centerFlex(flex, '', space-between);
+    flex-direction: column;
+    height: 100px;
+    >a{
+        @include fontStyle(16px, #ffffff, 400);
+        width: fit-content;
+        text-decoration: none;
+        background: linear-gradient(90deg, white, white);
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        transition: background-size 0.3s ease-in-out;
+        &:hover{
+            color: #3DCFB6;
+            background-size: 100% 2px;
+        }
+    }
+}
+.footerNameYearText{
+    @include fontStyle(18px, #3DCFB6, 400);
+}
+@media (min-width: 2050px) {
+    main{
+        margin: 0;
+    }
+}
+@media (min-width: 1921px) {
+    main{
+        width: 100%;
+        max-width: 1920px;
+    }
+    footer{
+        display: flex;
+        align-items: center;
+    }
+}
+@media (max-width: 1200px) {
+   main{
+        margin: 0 48px;
+   }
+}
+@media (max-width: 800px) {
+    main{
+        height: 270px;
+    }
+}
+@media (max-width: 700px) {
+    main{
+        height: 310px;
+    }
+    section{
+        bottom: 80px;
+    }
+    .footerNameStyle{
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+}
+@media (max-width: 600px) {
+    main{
+        margin: 0 16px;
+    }
+}
+@media (max-width: 400px) {
+    .logoJobLocation{
+        height: 90%;
+    }
+}
