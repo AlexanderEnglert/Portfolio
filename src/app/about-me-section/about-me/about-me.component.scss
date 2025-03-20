@@ -9,7 +9,7 @@ section{
     top: 120px;
     left: 0;
     >img{
-        @include buttonStyle(30px, 570px, 570px, #FFFFFF);
+        @include buttonStyle(30px, auto, 470px, #FFFFFF);
     }
 }
 .aboutMeBox{
@@ -66,9 +66,9 @@ section{
 }
 @media (max-width: 1530px) {
     .aboutMePicture{
-        top: 310px;
+        top: 220px;
         >img{
-            @include buttonStyle(30px, 420px, 400px, #FFFFFF);
+            @include buttonStyle(30px, auto, 400px, #FFFFFF);
         }
     }
     .aboutMeBox{
@@ -163,7 +163,7 @@ section{
     }
     .aboutMePicture{
         >img{
-            @include buttonStyle(30px, 340px, 340px, #FFFFFF);
+            @include buttonStyle(30px, auto, 340px, #FFFFFF);
         }
     }
 }
@@ -178,7 +178,7 @@ section{
     }
     .aboutMePicture{
         >img{
-            @include buttonStyle(30px, 300px, 300px, #FFFFFF);
+            @include buttonStyle(30px, auto, 300px, #FFFFFF);
         }
     }
 }

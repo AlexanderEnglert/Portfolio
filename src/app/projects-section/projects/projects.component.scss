@@ -50,7 +50,7 @@ section{
         background-color: rgb(47,91,84);
     }
 }
-.projectTextImg:hover .projectsImgBox{
+.projectText:hover + .projectsImgBox {
     display: flex;
 }
 .projectsImgBox{
